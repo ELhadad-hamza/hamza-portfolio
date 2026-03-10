@@ -1,13 +1,13 @@
 export const personalInfo = {
   name: "EL HADAD HAMZA",
-  role: "Ingénieur & Développeur",
+  role: "Ingénieur & Développeur Web",
   tagline:
-    "Je conçois et développe des solutions web modernes, performantes et orientées expérience utilisateur.",
+    "Je conçois et développe des applications web modernes, performantes et orientées expérience utilisateur.",
   about:
-    "Je suis EL HADAD HAMZA, ingénieur et développeur passionné par la création d’applications web modernes, propres et efficaces. J’aime transformer des idées en projets concrets, concevoir des interfaces professionnelles et développer des solutions utiles avec une vraie valeur technique.",
+    "Je suis EL HADAD HAMZA, élève ingénieur à l’EMSI et passionné par le développement web et logiciel. Titulaire d’une licence en Mathématiques et Informatique à la Faculté des Sciences de Rabat, j’aime concevoir des applications modernes, structurées et utiles, en combinant qualité technique, interface professionnelle et bonnes pratiques de développement.",
   email: "hamzihadi123@gmail.com",
   phone: "+212 6 97 57 27 47",
-  location: "Maroc",
+  location: "Rabat, Maroc",
   cvUrl: "/hamza-cv.pdf",
 };
 
@@ -20,69 +20,93 @@ export const socials = {
 export const skills = [
   {
     title: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"],
+    items: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+    ],
   },
   {
     title: "Backend",
-    items: ["Node.js", "Express", "Java", "Spring Boot", "PHP"],
+    items: [
+      "Node.js",
+      "Express.js",
+      "Java",
+      "Spring Boot",
+      "C#",
+      ".NET",
+      "PHP",
+    ],
   },
   {
     title: "Base de données",
-    items: ["MySQL", "PostgreSQL", "MongoDB"],
+    items: ["MySQL", "PostgreSQL", "MongoDB", "SQL Server 2022"],
   },
   {
     title: "Outils",
-    items: ["Git", "GitHub", "VS Code", "Figma", "Postman"],
+    items: ["Git", "GitHub", "VS Code", "Postman", "Figma"],
   },
 ];
 
 export const experiences = [
   {
     period: "2024 - Aujourd’hui",
-    title: "Ingénieur / Développeur",
-    company: "Profil personnel",
+    title: "Développeur / Projets académiques et personnels",
+    company: "EMSI & projets personnels",
     description:
-      "Développement d’applications web modernes, création d’interfaces responsives, structuration de projets techniques et amélioration continue des performances.",
+      "Conception et développement d’applications web modernes, création d’interfaces responsives, intégration frontend/backend, structuration de bases de données et amélioration continue de la qualité technique des projets.",
   },
   {
-    period: "À compléter",
-    title: "Stage / Expérience professionnelle",
-    company: "Nom de l’entreprise",
+    period: "2023 - Aujourd’hui",
+    title: "Formation d’Ingénieur",
+    company: "EMSI Rabat",
     description:
-      "Ajoute ici ton expérience réelle, les technologies utilisées et les résultats obtenus.",
+      "Formation en ingénierie orientée développement logiciel, technologies web, bases de données, architecture applicative et bonnes pratiques de conception de projets informatiques.",
   },
   {
-    period: "À compléter",
-    title: "Formation d’ingénieur",
-    company: "Nom de l’école / université",
+    period: "Avant EMSI",
+    title: "Licence en Mathématiques et Informatique",
+    company: "Faculté des Sciences de Rabat",
     description:
-      "Ajoute ici ton parcours académique, ta spécialité et les compétences principales acquises.",
+      "Obtention d’une licence en Mathématiques et Informatique, avec acquisition de bases solides en algorithmique, logique, programmation, modélisation et résolution de problèmes.",
   },
 ];
 
 export const projects = [
   {
-    title: "Portfolio Personnel",
-    description:
-      "Site web portfolio moderne pour présenter mon profil, mes compétences, mes projets et mes coordonnées professionnelles.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/ton-username/portfolio",
-    demo: "#",
-  },
-  {
     title: "Projet Web E-commerce",
     description:
-      "Plateforme e-commerce avec présentation des produits, expérience utilisateur soignée et interface responsive.",
+      "Développement d’une plateforme e-commerce moderne avec présentation de produits, navigation fluide, expérience utilisateur soignée et interface responsive.",
     stack: ["React", "Node.js", "MongoDB"],
-    github: "https://github.com/ton-username/ecommerce-project",
+    github: "https://github.com/ELhadad-hamza",
     demo: "#",
   },
   {
-    title: "Application de Gestion",
+    title: "Application Cabinet Médical",
     description:
-      "Application de gestion structurée avec authentification, tableaux de bord et logique métier claire.",
-    stack: ["Java", "Spring Boot", "MySQL"],
-    github: "https://github.com/ton-username/gestion-app",
+      "Conception d’une application de gestion pour cabinet médical permettant l’organisation des données, la gestion des opérations métier et une structure logicielle claire.",
+    stack: ["C#", ".NET", "SQL Server 2022"],
+    github: "https://github.com/ELhadad-hamza",
+    demo: "#",
+  },
+  {
+    title: "Shop Coffee",
+    description:
+      "Développement d’une application web autour d’un concept coffee shop avec gestion des données, interface attractive et structure backend connectée à MongoDB.",
+    stack: ["MongoDB", "Node.js", "Express.js", "React"],
+    github: "https://github.com/ELhadad-hamza",
+    demo: "#",
+  },
+  {
+    title: "Portfolio Personnel",
+    description:
+      "Création de mon site portfolio personnel pour présenter mon profil, mes compétences, mes projets et mes coordonnées professionnelles dans une interface moderne.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/ELhadad-hamza/hamza-portfolio",
     demo: "#",
   },
 ];
