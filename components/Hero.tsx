@@ -1,6 +1,9 @@
+import Image from "next/image";
 import { personalInfo, socials } from "@/data/portfolio";
 
 export default function Hero() {
+  const nameParts = personalInfo.name.split(" ");
+
   return (
     <section
       id="home"
@@ -12,9 +15,9 @@ export default function Hero() {
         </div>
 
         <h1 className="mt-8 text-5xl font-extrabold leading-tight text-white md:text-7xl">
-          {personalInfo.name.split(" ")[0]} {personalInfo.name.split(" ")[1]}{" "}
+          {nameParts[0]} {nameParts[1]}{" "}
           <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
-            {personalInfo.name.split(" ").slice(2).join(" ")}
+            {nameParts.slice(2).join(" ")}
           </span>
         </h1>
 
@@ -103,7 +106,7 @@ export default function Hero() {
 
         <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-md md:p-8">
           <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-8">
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm uppercase tracking-[0.25em] text-cyan-300">
                   Profil
@@ -113,8 +116,14 @@ export default function Hero() {
                 </h3>
               </div>
 
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-xl font-bold text-cyan-300">
-                H
+              <div className="relative h-16 w-16 overflow-hidden rounded-2xl border border-cyan-400/20 bg-cyan-400/10">
+                <Image
+                  src="/profile.jpg"
+                  alt={personalInfo.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
 
@@ -153,6 +162,13 @@ export default function Hero() {
                   {personalInfo.email}
                 </p>
               </div>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-4 py-3">
+              <p className="text-sm font-medium text-cyan-200">
+                Basé à {personalInfo.location} • Ouvert aux opportunités et aux
+                collaborations
+              </p>
             </div>
           </div>
         </div>
