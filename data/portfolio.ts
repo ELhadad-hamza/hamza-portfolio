@@ -78,28 +78,22 @@ export const experiences = [
 
 export const projects = [
   {
-    title: "Projet Web E-commerce",
-    description:
-      "Développement d’une plateforme e-commerce moderne avec présentation de produits, navigation fluide, expérience utilisateur soignée et interface responsive.",
-    stack: ["React", "Node.js", "MongoDB"],
-    github: "https://github.com/ELhadad-hamza",
-    demo: "#",
-  },
-  {
     title: "Application Cabinet Médical",
     description:
-      "Conception d’une application de gestion pour cabinet médical permettant l’organisation des données, la gestion des opérations métier et une structure logicielle claire.",
+      "Application de gestion pour cabinet médical permettant l’organisation des rendez-vous, des patients et des opérations métier dans une interface claire et professionnelle.",
     stack: ["C#", ".NET", "SQL Server 2022"],
     github: "https://github.com/ELhadad-hamza",
     demo: "#",
+    image: "/projects/cabinet-medical.png",
   },
   {
     title: "Shop Coffee",
     description:
-      "Développement d’une application web autour d’un concept coffee shop avec gestion des données, interface attractive et structure backend connectée à MongoDB.",
-    stack: ["MongoDB", "Node.js", "Express.js", "React"],
+      "Application web inspirée d’un coffee shop moderne avec interface attractive, structure backend claire et gestion de données à l’aide de MongoDB.",
+    stack: ["React", "Node.js", "Express.js", "MongoDB"],
     github: "https://github.com/ELhadad-hamza",
     demo: "#",
+    image: "/projects/shop-coffee.png",
   },
   {
     title: "Portfolio Personnel",
@@ -107,6 +101,7 @@ export const projects = [
       "Création de mon site portfolio personnel pour présenter mon profil, mes compétences, mes projets et mes coordonnées professionnelles dans une interface moderne.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/ELhadad-hamza/hamza-portfolio",
-    demo: "#",
+    demo: "https://hamzaelhadad.com",
+    image: "/projects/portfolio.png",
   },
 ];
