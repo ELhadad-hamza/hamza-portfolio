@@ -28,10 +28,21 @@ export default function Contact() {
       message: formData.get("message"),
     };
 
+    const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+
+    if (!endpoint) {
+      setStatus({
+        type: "error",
+        message: "Le lien Formspree manque dans .env.local",
+      });
+      return;
+    }
+
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
@@ -40,12 +51,14 @@ export default function Contact() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Une erreur est survenue.");
+        throw new Error(
+          data?.errors?.[0]?.message || "Une erreur est survenue."
+        );
       }
 
       setStatus({
         type: "success",
-        message: "Message envoyé avec succès.",
+        message: "Votre message a bien été envoyé.",
       });
 
       form.reset();
