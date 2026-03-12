@@ -181,7 +181,7 @@ export default function Hero() {
 
                 <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
                   <p className="text-sm text-slate-400">Contact</p>
-                  <p className="mt-1 font-semibold text-white">
+                  <p className="mt-1 break-all text-sm font-semibold text-white md:text-base">
                     {personalInfo.email}
                   </p>
                 </div>
