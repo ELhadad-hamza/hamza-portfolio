@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import Availability from "@/components/Availability";
 import Contact from "@/components/Contact";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
@@ -20,6 +21,7 @@ export default function Home() {
       <Education />
       <Experience />
       <Projects />
+      <Availability />
       <Contact />
       <Footer />
     </main>
