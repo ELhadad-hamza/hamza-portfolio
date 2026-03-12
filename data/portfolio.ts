@@ -78,30 +78,66 @@ export const experiences = [
 
 export const projects = [
   {
+    slug: "cabinet-medical",
     title: "Application Cabinet Médical",
     description:
       "Application de gestion pour cabinet médical permettant l’organisation des rendez-vous, des patients et des opérations métier dans une interface claire et professionnelle.",
+    fullDescription:
+      "Cette application a été conçue pour digitaliser la gestion quotidienne d’un cabinet médical. Elle permet d’organiser les rendez-vous, de centraliser les informations liées aux patients et de structurer les opérations principales dans une interface simple et professionnelle.",
     stack: ["C#", ".NET", "SQL Server 2022"],
     github: "https://github.com/ELhadad-hamza",
     demo: "#",
     image: "/projects/cabinet-medical.png",
+    role: "Conception et développement de l’application",
+    features: [
+      "Gestion des patients",
+      "Organisation des rendez-vous",
+      "Interface d’administration claire",
+      "Structuration des données médicales",
+    ],
+    result:
+      "Projet académique et technique mettant en valeur la conception d’une interface métier, la structuration d’une base de données et l’organisation logique d’une application de gestion.",
   },
   {
+    slug: "shop-coffee",
     title: "Shop Coffee",
     description:
       "Application web inspirée d’un coffee shop moderne avec interface attractive, structure backend claire et gestion de données à l’aide de MongoDB.",
+    fullDescription:
+      "Shop Coffee est une application web pensée autour d’un concept moderne de coffee shop. L’objectif du projet était de créer une interface visuellement agréable, avec une structure backend claire et une gestion efficace des données.",
     stack: ["React", "Node.js", "Express.js", "MongoDB"],
     github: "https://github.com/ELhadad-hamza",
     demo: "#",
     image: "/projects/shop-coffee.png",
+    role: "Développement frontend et backend",
+    features: [
+      "Interface moderne et responsive",
+      "Gestion des données avec MongoDB",
+      "Backend structuré avec Express",
+      "Présentation claire des éléments",
+    ],
+    result:
+      "Projet démontrant ma capacité à concevoir une application web full stack avec une interface soignée et une logique de données cohérente.",
   },
   {
+    slug: "portfolio-personnel",
     title: "Portfolio Personnel",
     description:
       "Création de mon site portfolio personnel pour présenter mon profil, mes compétences, mes projets et mes coordonnées professionnelles dans une interface moderne.",
+    fullDescription:
+      "Ce portfolio personnel a été conçu pour mettre en valeur mon profil, mon parcours académique, mes compétences et mes réalisations dans un environnement moderne, responsive et professionnel.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/ELhadad-hamza/hamza-portfolio",
     demo: "https://hamzaelhadad.com",
     image: "/projects/portfolio.png",
+    role: "Design, développement et déploiement",
+    features: [
+      "Design premium et responsive",
+      "Présentation structurée du profil",
+      "Intégration de projets et sections dynamiques",
+      "Déploiement sur Vercel avec domaine personnalisé",
+    ],
+    result:
+      "Projet personnel servant de vitrine professionnelle pour présenter mon travail de manière claire, moderne et crédible.",
   },
 ];

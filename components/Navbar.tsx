@@ -1,21 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 
 const links = [
-  { label: "Accueil", href: "#home", id: "home" },
-  { label: "À propos", href: "#about", id: "about" },
-  { label: "Services", href: "#services", id: "services" },
-  { label: "Compétences", href: "#skills", id: "skills" },
-  { label: "Formation", href: "#education", id: "education" },
-  { label: "Expériences", href: "#experience", id: "experience" },
-  { label: "Projets", href: "#projects", id: "projects" },
-  { label: "Contact", href: "#contact", id: "contact" },
+  { label: "Accueil", hash: "home", id: "home" },
+  { label: "À propos", hash: "about", id: "about" },
+  { label: "Services", hash: "services", id: "services" },
+  { label: "Compétences", hash: "skills", id: "skills" },
+  { label: "Formation", hash: "education", id: "education" },
+  { label: "Expériences", hash: "experience", id: "experience" },
+  { label: "Projets", hash: "projects", id: "projects" },
+  { label: "Contact", hash: "contact", id: "contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -23,6 +28,8 @@ export default function Navbar() {
   useEffect(() => {
     function handleScroll() {
       setScrolled(window.scrollY > 20);
+
+      if (!isHomePage) return;
 
       const scrollPosition = window.scrollY + 140;
       let currentSection = "home";
@@ -45,11 +52,17 @@ export default function Navbar() {
       setActiveSection(currentSection);
     }
 
+    if (!isHomePage && pathname.startsWith("/projects/")) {
+      setActiveSection("projects");
+    } else if (!isHomePage) {
+      setActiveSection("");
+    }
+
     handleScroll();
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage, pathname]);
 
   useEffect(() => {
     function handleResize() {
@@ -73,6 +86,10 @@ export default function Navbar() {
     setMobileOpen(false);
   }
 
+  function getHref(hash: string) {
+    return isHomePage ? `#${hash}` : `/#${hash}`;
+  }
+
   return (
     <>
       <header
@@ -83,22 +100,22 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a
-            href="#home"
+          <Link
+            href={isHomePage ? "#home" : "/#home"}
             onClick={closeMobileMenu}
             className="text-lg font-extrabold tracking-wide text-white transition hover:text-cyan-400"
           >
             {personalInfo.name}
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-2 md:flex">
             {links.map((link) => {
               const isActive = activeSection === link.id;
 
               return (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  href={getHref(link.hash)}
                   className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                     isActive
                       ? "bg-cyan-400/10 text-cyan-300"
@@ -109,7 +126,7 @@ export default function Navbar() {
                   {isActive && (
                     <span className="absolute inset-x-3 -bottom-1 h-[2px] rounded-full bg-cyan-400" />
                   )}
-                </a>
+                </Link>
               );
             })}
 
@@ -165,9 +182,9 @@ export default function Navbar() {
             const isActive = activeSection === link.id;
 
             return (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                href={getHref(link.hash)}
                 onClick={closeMobileMenu}
                 className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
                   isActive
@@ -176,7 +193,7 @@ export default function Navbar() {
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             );
           })}
         </div>

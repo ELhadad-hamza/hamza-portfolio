@@ -2,6 +2,7 @@ import Image from "next/image";
 import { projects } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import MotionCard from "@/components/MotionCard";
+import Link from "next/link";
 
 export default function Projects() {
   return (
@@ -52,9 +53,17 @@ export default function Projects() {
       </div>
 
       <div className="flex flex-1 flex-col p-8">
-        <h3 className="text-2xl font-bold text-white transition group-hover:text-cyan-300">
-          {project.title}
-        </h3>
+        <Link href={`/projects/${project.slug}`}>
+      <h3 className="text-2xl font-bold text-white transition group-hover:text-cyan-300">
+         {project.title}
+       </h3>
+  </Link>
+  <Link
+  href={`/projects/${project.slug}`}
+  className="rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
+>
+  Détails
+</Link>
 
         <p className="mt-4 leading-7 text-slate-300">
           {project.description}
