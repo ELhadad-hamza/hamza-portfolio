@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { personalInfo, socials } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
+import MotionButton from "@/components/MotionButton";
 
 export default function Hero() {
   const nameParts = personalInfo.name.split(" ");
@@ -41,31 +42,37 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={0.26}>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:scale-[1.02] hover:bg-cyan-300"
-            >
-              Voir mes projets
-            </a>
+  <div className="mt-8 flex flex-wrap gap-4">
+    <MotionButton>
+      <a
+        href="#projects"
+        className="rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300"
+      >
+        Voir mes projets
+      </a>
+    </MotionButton>
 
-            <a
-              href={personalInfo.cvUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
-            >
-              Télécharger mon CV
-            </a>
+    <MotionButton>
+      <a
+        href={personalInfo.cvUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
+      >
+        Télécharger mon CV
+      </a>
+    </MotionButton>
 
-            <a
-              href="#contact"
-              className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-6 py-3 font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400 hover:text-slate-950"
-            >
-              Me contacter
-            </a>
-          </div>
-        </Reveal>
+    <MotionButton>
+      <a
+        href="#contact"
+        className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-6 py-3 font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400 hover:text-slate-950"
+      >
+        Me contacter
+      </a>
+    </MotionButton>
+  </div>
+</Reveal>
 
         <Reveal delay={0.32}>
           <div className="mt-8 flex flex-wrap gap-3">

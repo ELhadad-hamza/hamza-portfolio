@@ -5,6 +5,7 @@ import {
   Rocket,
 } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import MotionCard from "@/components/MotionCard";
 
 const services = [
   {
@@ -62,34 +63,36 @@ export default function Services() {
 
           return (
             <Reveal key={service.title} delay={index * 0.08}>
-              <article className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-500/10">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300 transition group-hover:bg-cyan-400/15">
-                    <Icon size={26} />
-                  </div>
+  <MotionCard>
+    <article className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition duration-300 hover:border-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-500/10">
+      <div className="flex items-start gap-4">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300 transition group-hover:bg-cyan-400/15">
+          <Icon size={26} />
+        </div>
 
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white transition group-hover:text-cyan-300">
-                      {service.title}
-                    </h3>
-                    <p className="mt-3 leading-7 text-slate-300">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
+        <div className="flex-1">
+          <h3 className="text-2xl font-bold text-white transition group-hover:text-cyan-300">
+            {service.title}
+          </h3>
+          <p className="mt-3 leading-7 text-slate-300">
+            {service.description}
+          </p>
+        </div>
+      </div>
 
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {service.points.map((point) => (
-                    <span
-                      key={point}
-                      className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm font-medium text-cyan-200"
-                    >
-                      {point}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            </Reveal>
+      <div className="mt-6 flex flex-wrap gap-2">
+        {service.points.map((point) => (
+          <span
+            key={point}
+            className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm font-medium text-cyan-200"
+          >
+            {point}
+          </span>
+        ))}
+      </div>
+    </article>
+  </MotionCard>
+</Reveal>
           );
         })}
       </div>
