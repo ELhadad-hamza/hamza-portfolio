@@ -3,6 +3,7 @@ import { personalInfo } from "@/data/portfolio";
 const links = [
   { label: "Accueil", href: "#home" },
   { label: "À propos", href: "#about" },
+  { label: "Services", href: "#services" },
   { label: "Compétences", href: "#skills" },
   { label: "Expériences", href: "#experience" },
   { label: "Projets", href: "#projects" },
