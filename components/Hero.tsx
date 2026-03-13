@@ -139,15 +139,15 @@ export default function Hero() {
                   </h3>
                 </div>
 
-                <div className="relative h-16 w-16 overflow-hidden rounded-2xl border border-cyan-400/20 bg-cyan-400/10">
-                  <Image
-                    src="/profile.jpg"
-                    alt={personalInfo.name}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
+                <div className="relative h-28 w-28 overflow-hidden rounded-3xl border border-cyan-400/20 bg-cyan-400/10 shadow-xl shadow-cyan-500/10">
+                <Image
+               src="/profile-new.jpg"
+               alt={personalInfo.name}
+               fill
+               className="object-cover"
+               priority
+               />
+              </div>
               </div>
 
               <p className="mt-5 leading-8 text-slate-400">
