@@ -262,3 +262,68 @@ export const projects = [
       "Le projet est aujourd’hui déployé sur mon domaine personnel hamzaelhadad.com et évolue progressivement avec mes nouvelles expériences et réalisations.",
   },
 ];
+export const journey = [
+  {
+    period: "2026",
+    type: "Expérience",
+    title: "Stage — Développement d’une plateforme de gestion de stock",
+    organization: "Entreprise de stage — Papers Sarl",
+    description:
+      "Conception et développement d’une application métier destinée à centraliser la gestion des produits, catégories, fournisseurs, entrées et sorties de stock, inventaires, alertes et rapports.",
+    highlights: [
+      "Analyse d’un besoin professionnel réel",
+      "Développement d’une application métier complète",
+      "Conception d’un tableau de bord de supervision",
+      "Gestion des stocks, inventaires et alertes",
+    ],
+    featured: true,
+  },
+
+  {
+    period: "2023 — Aujourd’hui",
+    type: "Formation",
+    title: "Cycle Ingénieur",
+    organization: "EMSI Rabat",
+    description:
+      "Formation en ingénierie informatique orientée développement logiciel, technologies web, bases de données, architecture applicative et conception de systèmes informatiques.",
+    highlights: [
+      "Développement logiciel",
+      "Applications web",
+      "Bases de données",
+      "Architecture et conception",
+    ],
+    featured: false,
+  },
+
+  {
+    period: "Licence",
+    type: "Projet académique",
+    title: "Projet de fin d’études",
+    organization: "Faculté des Sciences de Rabat",
+    description:
+      "Projet réalisé dans le cadre de ma licence en Mathématiques et Informatique, avec mise en pratique des compétences acquises en analyse, conception et développement.",
+    highlights: [
+      "Analyse du besoin",
+      "Conception du système",
+      "Développement",
+      "Présentation du projet",
+    ],
+    featured: false,
+  },
+
+  {
+    period: "Avant 2023",
+    type: "Formation",
+    title: "Licence en Mathématiques et Informatique",
+    organization: "Faculté des Sciences de Rabat",
+    description:
+      "Formation universitaire combinant mathématiques, informatique, algorithmique, programmation et résolution structurée de problèmes.",
+    highlights: [
+      "Algorithmique",
+      "Programmation",
+      "Mathématiques",
+      "Résolution de problèmes",
+    ],
+    featured: false,
+  },
+];
