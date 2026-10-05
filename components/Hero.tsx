@@ -1,198 +1,204 @@
 import Image from "next/image";
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  Download,
+  Github,
+  Linkedin,
+  MapPin,
+} from "lucide-react";
+
 import { personalInfo, socials } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
-import MotionButton from "@/components/MotionButton";
+
+const stack = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  ".NET",
+  "Spring Boot",
+  "MongoDB",
+  "SQL Server",
+];
 
 export default function Hero() {
-  const nameParts = personalInfo.name.split(" ");
-
   return (
     <section
       id="home"
-      className="mx-auto grid min-h-[92vh] max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2"
+      className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 lg:px-8 lg:pb-32 lg:pt-28"
     >
-      <div>
-        <Reveal>
-          <div className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-            Disponible pour de nouveaux projets
-          </div>
-        </Reveal>
+      <div className="grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20">
+        {/* LEFT */}
 
-        <Reveal delay={0.08}>
-          <h1 className="mt-8 text-5xl font-extrabold leading-tight text-white md:text-7xl">
-            {nameParts[0]} {nameParts[1]}{" "}
-            <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
-              {nameParts.slice(2).join(" ")}
-            </span>
-          </h1>
-        </Reveal>
+        <div>
+          <Reveal>
+            <div className="flex items-center gap-3 text-sm text-zinc-500">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-40" />
 
-        <Reveal delay={0.14}>
-          <h2 className="mt-5 text-2xl font-semibold text-slate-200 md:text-3xl">
-            {personalInfo.role}
-          </h2>
-        </Reveal>
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              </span>
 
-        <Reveal delay={0.2}>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
-            {personalInfo.tagline} Je développe des interfaces modernes,
-            responsives et professionnelles avec une attention particulière à la
-            qualité du code, à la performance et à l’expérience utilisateur.
-          </p>
-        </Reveal>
+              Disponible pour de nouvelles opportunités
+            </div>
+          </Reveal>
 
-        <Reveal delay={0.26}>
-  <div className="mt-8 flex flex-wrap gap-4">
-    <MotionButton>
-      <a
-        href="#projects"
-        className="rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300"
-      >
-        Voir mes projets
-      </a>
-    </MotionButton>
+          <Reveal delay={0.06}>
+            <p className="mt-10 text-sm font-medium uppercase tracking-[0.22em] text-cyan-300">
+              Software Engineering · Full Stack
+            </p>
+          </Reveal>
 
-    <MotionButton>
-      <a
-        href={personalInfo.cvUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
-      >
-        Télécharger mon CV
-      </a>
-    </MotionButton>
+          <Reveal delay={0.1}>
+            <h1 className="mt-5 max-w-4xl text-[3.5rem] font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-[5.35rem]">
+              Je transforme des idées en{" "}
+              <span className="text-zinc-500">produits numériques</span>{" "}
+              utiles.
+            </h1>
+          </Reveal>
 
-    <MotionButton>
-      <a
-        href="#contact"
-        className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-6 py-3 font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400 hover:text-slate-950"
-      >
-        Me contacter
-      </a>
-    </MotionButton>
-  </div>
-</Reveal>
+          <Reveal delay={0.15}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-400">
+              Je suis{" "}
+              <span className="font-medium text-white">
+                Hamza El Hadad
+              </span>
+              , élève ingénieur et développeur full-stack basé à Rabat.
+              Je conçois des applications web de l’interface jusqu’au backend,
+              avec une attention particulière portée à la clarté, la structure
+              et l’expérience utilisateur.
+            </p>
+          </Reveal>
 
-        <Reveal delay={0.32}>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={socials.github}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
-            >
-              GitHub
-            </a>
+          <Reveal delay={0.2}>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition duration-300 hover:bg-cyan-200"
+              >
+                Découvrir mes projets
 
-            <a
-              href={socials.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
-            >
-              LinkedIn
-            </a>
+                <ArrowDownRight
+                  size={17}
+                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+                />
+              </a>
 
-            <a
-              href={socials.email}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
-            >
-              Email
-            </a>
-          </div>
-        </Reveal>
+              <a
+                href={personalInfo.cvUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-medium text-white transition hover:border-white/20 hover:bg-white/[0.07]"
+              >
+                <Download size={16} />
 
-        <Reveal delay={0.38}>
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-sm">
-              <p className="text-2xl font-bold text-white">4+</p>
-              <p className="text-sm text-slate-400">Projets réalisés</p>
+                Télécharger CV
+              </a>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.24}>
+            <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4 text-sm text-zinc-500">
+              <div className="flex items-center gap-2">
+                <MapPin size={15} />
+                {personalInfo.location}
+              </div>
+
+              <a
+                href={socials.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 transition hover:text-white"
+              >
+                <Github size={15} />
+                GitHub
+              </a>
+
+              <a
+                href={socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 transition hover:text-white"
+              >
+                <Linkedin size={15} />
+                LinkedIn
+              </a>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* RIGHT */}
+
+        <Reveal delay={0.1} y={30}>
+          <div className="relative mx-auto w-full max-w-[520px] lg:mx-0 lg:ml-auto">
+            <div className="absolute -inset-8 -z-10 rounded-full bg-cyan-300/[0.05] blur-3xl" />
+
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/[0.10] bg-[#111315]">
+              <Image
+                src="/profile-new.jpg"
+                alt="EL HADAD HAMZA"
+                fill
+                priority
+                sizes="(max-width: 1024px) 90vw, 520px"
+                className="object-cover object-top"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                <div className="flex items-end justify-between gap-5">
+                  <div>
+                    <p className="text-sm text-zinc-400">
+                      Currently
+                    </p>
+
+                    <p className="mt-1 text-lg font-medium text-white">
+                      Engineering Student @ EMSI
+                    </p>
+                  </div>
+
+                  <a
+                    href="#about"
+                    aria-label="Découvrir mon profil"
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/15 bg-black/30 text-white backdrop-blur-md transition hover:bg-white hover:text-black"
+                  >
+                    <ArrowUpRight size={18} />
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-sm">
-              <p className="text-2xl font-bold text-white">Full Stack</p>
-              <p className="text-sm text-slate-400">Web & software</p>
-            </div>
+            <div className="absolute -left-5 top-8 hidden rounded-2xl border border-white/10 bg-[#0d0f11]/90 px-5 py-4 shadow-2xl backdrop-blur-xl sm:block">
+              <p className="text-xs uppercase tracking-[0.18em] text-zinc-600">
+                Focus
+              </p>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-sm">
-              <p className="text-2xl font-bold text-white">100%</p>
-              <p className="text-sm text-slate-400">Responsive design</p>
+              <p className="mt-1 text-sm font-medium text-white">
+                Full-Stack Development
+              </p>
             </div>
           </div>
         </Reveal>
       </div>
 
-      <Reveal delay={0.16} y={40}>
-        <div className="relative">
-          <div className="absolute inset-0 rounded-[2rem] bg-cyan-400/10 blur-3xl" />
+      {/* STACK */}
 
-          <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-md md:p-8">
-            <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-8">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.25em] text-cyan-300">
-                    Profil
-                  </p>
-                  <h3 className="mt-3 text-3xl font-bold text-white">
-                    Développeur web moderne
-                  </h3>
-                </div>
+      <Reveal delay={0.3}>
+        <div className="mt-20 border-y border-white/[0.08] py-6">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <p className="shrink-0 text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
+              Core stack
+            </p>
 
-                <div className="relative h-28 w-28 overflow-hidden rounded-3xl border border-cyan-400/20 bg-cyan-400/10 shadow-xl shadow-cyan-500/10">
-                <Image
-               src="/profile-new.jpg"
-               alt={personalInfo.name}
-               fill
-               className="object-cover"
-               priority
-               />
-              </div>
-              </div>
-
-              <p className="mt-5 leading-8 text-slate-400">
-                Je conçois des applications web modernes, structurées et orientées
-                performance. Mon objectif est de créer des solutions utiles avec
-                une interface propre, une architecture claire et une vraie valeur
-                utilisateur.
-              </p>
-
-              <div className="mt-8 space-y-3">
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-300">
-                  Frontend moderne avec React, Next.js et Tailwind CSS
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-300">
-                  Backend structuré avec Node.js, .NET, Java et Spring Boot
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-300">
-                  Gestion de bases de données avec MongoDB, MySQL et SQL Server
-                </div>
-              </div>
-
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                  <p className="text-sm text-slate-400">Localisation</p>
-                  <p className="mt-1 font-semibold text-white">
-                    {personalInfo.location}
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                  <p className="text-sm text-slate-400">Contact</p>
-                  <p className="mt-1 break-all text-sm font-semibold text-white md:text-base">
-                    {personalInfo.email}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-4 py-3">
-                <p className="text-sm font-medium text-cyan-200">
-                  Basé à {personalInfo.location} • Ouvert aux opportunités et aux
-                  collaborations
-                </p>
-              </div>
+            <div className="flex flex-wrap gap-x-7 gap-y-3">
+              {stack.map((technology) => (
+                <span
+                  key={technology}
+                  className="text-sm font-medium text-zinc-400 transition hover:text-white"
+                >
+                  {technology}
+                </span>
+              ))}
             </div>
           </div>
         </div>

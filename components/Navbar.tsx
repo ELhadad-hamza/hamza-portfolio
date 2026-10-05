@@ -3,22 +3,40 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 
-const links = [
-  { label: "Accueil", hash: "home", id: "home" },
-  { label: "À propos", hash: "about", id: "about" },
-  { label: "Services", hash: "services", id: "services" },
-  { label: "Compétences", hash: "skills", id: "skills" },
-  { label: "Formation", hash: "education", id: "education" },
-  { label: "Expériences", hash: "experience", id: "experience" },
-  { label: "Projets", hash: "projects", id: "projects" },
-  { label: "Contact", hash: "contact", id: "contact" },
+const navigation = [
+  {
+    label: "Projets",
+    target: "projects",
+    sections: ["projects"],
+  },
+  {
+    label: "À propos",
+    target: "about",
+    sections: ["about"],
+  },
+  {
+    label: "Expertise",
+    target: "skills",
+    sections: ["services", "skills"],
+  },
+  {
+    label: "Parcours",
+    target: "education",
+    sections: ["education", "experience"],
+  },
+  {
+    label: "Contact",
+    target: "contact",
+    sections: ["contact"],
+  },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
+
   const isHomePage = pathname === "/";
 
   const [activeSection, setActiveSection] = useState("home");
@@ -27,194 +45,169 @@ export default function Navbar() {
 
   useEffect(() => {
     function handleScroll() {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 30);
 
       if (!isHomePage) return;
 
-      const scrollPosition = window.scrollY + 140;
-      let currentSection = "home";
+      const position = window.scrollY + 180;
 
-      for (const link of links) {
-        const section = document.getElementById(link.id);
-        if (!section) continue;
+      let current = "home";
 
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
+      for (const item of navigation) {
+        for (const sectionId of item.sections) {
+          const section = document.getElementById(sectionId);
 
-        if (
-          scrollPosition >= sectionTop &&
-          scrollPosition < sectionTop + sectionHeight
-        ) {
-          currentSection = link.id;
+          if (!section) continue;
+
+          if (position >= section.offsetTop) {
+            current = item.target;
+          }
         }
       }
 
-      setActiveSection(currentSection);
+      setActiveSection(current);
     }
 
     if (!isHomePage && pathname.startsWith("/projects/")) {
       setActiveSection("projects");
-    } else if (!isHomePage) {
-      setActiveSection("");
     }
 
     handleScroll();
+
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [isHomePage, pathname]);
 
   useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth >= 768) {
-        setMobileOpen(false);
-      }
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+
     return () => {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
 
-  function closeMobileMenu() {
-    setMobileOpen(false);
+  function getHref(target: string) {
+    return isHomePage ? `#${target}` : `/#${target}`;
   }
 
-  function getHref(hash: string) {
-    return isHomePage ? `#${hash}` : `/#${hash}`;
+  function closeMenu() {
+    setMobileOpen(false);
   }
 
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 border-b transition-all duration-300 ${
           scrolled
-            ? "border-b border-white/10 bg-slate-950/80 shadow-lg shadow-black/10 backdrop-blur-xl"
-            : "bg-slate-950/50 backdrop-blur-md"
+            ? "border-white/[0.08] bg-[#08090a]/85 backdrop-blur-xl"
+            : "border-transparent bg-[#08090a]/60 backdrop-blur-md"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 lg:px-8">
           <Link
             href={isHomePage ? "#home" : "/#home"}
-            onClick={closeMobileMenu}
-            className="text-lg font-extrabold tracking-wide text-white transition hover:text-cyan-400"
+            onClick={closeMenu}
+            className="group flex items-center gap-2"
           >
-            {personalInfo.name}
+            <span className="text-xl font-black tracking-[-0.04em] text-white">
+              HAMZA
+            </span>
+
+            <span className="h-2 w-2 rounded-full bg-cyan-300 transition-transform duration-300 group-hover:scale-150" />
           </Link>
 
-          <nav className="hidden items-center gap-2 md:flex">
-            {links.map((link) => {
-              const isActive = activeSection === link.id;
+          <nav className="hidden items-center gap-1 lg:flex">
+            {navigation.map((item) => {
+              const active = activeSection === item.target;
 
               return (
                 <Link
-                  key={link.label}
-                  href={getHref(link.hash)}
-                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                    isActive
-                      ? "bg-cyan-400/10 text-cyan-300"
-                      : "text-slate-300 hover:bg-white/5 hover:text-cyan-300"
+                  key={item.target}
+                  href={getHref(item.target)}
+                  className={`rounded-full px-4 py-2 text-sm transition-all duration-300 ${
+                    active
+                      ? "text-white"
+                      : "text-zinc-500 hover:text-white"
                   }`}
                 >
-                  {link.label}
-                  {isActive && (
-                    <span className="absolute inset-x-3 -bottom-1 h-[2px] rounded-full bg-cyan-400" />
-                  )}
+                  {item.label}
                 </Link>
               );
             })}
+          </nav>
 
+          <div className="hidden lg:block">
             <a
               href={personalInfo.cvUrl}
               target="_blank"
               rel="noreferrer"
-              className="ml-2 rounded-full border border-cyan-400/40 bg-cyan-400/10 px-5 py-2.5 text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400 hover:text-slate-950"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white transition hover:border-white/20 hover:bg-white/[0.08]"
             >
-              Mon CV
+              Télécharger CV
+
+              <ArrowUpRight
+                size={15}
+                className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
             </a>
-          </nav>
+          </div>
 
           <button
             type="button"
-            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            onClick={() => setMobileOpen((prev) => !prev)}
-            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition hover:border-cyan-400/30 hover:text-cyan-300 md:hidden"
+            onClick={() => setMobileOpen((current) => !current)}
+            aria-label={
+              mobileOpen ? "Fermer la navigation" : "Ouvrir la navigation"
+            }
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white lg:hidden"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </header>
 
       <div
-        className={`fixed inset-0 z-40 bg-slate-950/70 backdrop-blur-sm transition duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-[#08090a]/95 px-6 pt-28 backdrop-blur-xl transition-all duration-300 lg:hidden ${
           mobileOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         }`}
-        onClick={closeMobileMenu}
-      />
-
-      <aside
-        className={`fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm border-l border-white/10 bg-slate-950/95 p-6 shadow-2xl shadow-black/40 backdrop-blur-xl transition-transform duration-300 md:hidden ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
-        }`}
       >
-        <div className="flex items-center justify-between">
-          <p className="text-lg font-bold text-white">Navigation</p>
-          <button
-            type="button"
-            aria-label="Fermer le menu"
-            onClick={closeMobileMenu}
-            className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition hover:border-cyan-400/30 hover:text-cyan-300"
-          >
-            <X size={20} />
-          </button>
-        </div>
+        <nav className="mx-auto flex max-w-xl flex-col">
+          {navigation.map((item, index) => (
+            <Link
+              key={item.target}
+              href={getHref(item.target)}
+              onClick={closeMenu}
+              className="flex items-center justify-between border-b border-white/[0.08] py-5 text-3xl font-semibold tracking-tight text-white"
+            >
+              <span>{item.label}</span>
 
-        <div className="mt-8 flex flex-col gap-2">
-          {links.map((link) => {
-            const isActive = activeSection === link.id;
+              <span className="text-sm font-normal text-zinc-600">
+                0{index + 1}
+              </span>
+            </Link>
+          ))}
+        </nav>
 
-            return (
-              <Link
-                key={link.label}
-                href={getHref(link.hash)}
-                onClick={closeMobileMenu}
-                className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
-                  isActive
-                    ? "border border-cyan-400/20 bg-cyan-400/10 text-cyan-300"
-                    : "border border-transparent bg-white/5 text-slate-300 hover:border-cyan-400/20 hover:bg-cyan-400/5 hover:text-cyan-300"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </div>
-
-        <div className="mt-8 border-t border-white/10 pt-6">
+        <div className="mx-auto mt-10 max-w-xl">
           <a
             href={personalInfo.cvUrl}
             target="_blank"
             rel="noreferrer"
-            onClick={closeMobileMenu}
-            className="block rounded-full border border-cyan-400/40 bg-cyan-400/10 px-5 py-3 text-center text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400 hover:text-slate-950"
+            className="flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 font-semibold text-black"
           >
-            Voir mon CV
+            Télécharger mon CV
+            <ArrowUpRight size={17} />
           </a>
 
-          <p className="mt-5 text-sm leading-6 text-slate-400">
-            Basé à {personalInfo.location} • Disponible pour de nouveaux projets
-            et collaborations.
+          <p className="mt-6 text-sm leading-6 text-zinc-500">
+            {personalInfo.location} · Développement web & logiciel
           </p>
         </div>
-      </aside>
+      </div>
     </>
   );
 }
