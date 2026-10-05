@@ -1,99 +1,111 @@
-import { socials } from "@/data/portfolio";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-const footerLinks = [
-  { label: "Accueil", href: "#home" },
-  { label: "À propos", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Compétences", href: "#skills" },
-  { label: "Formation", href: "#education" },
-  { label: "Expériences", href: "#experience" },
-  { label: "Projets", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+import { personalInfo, socials } from "@/data/portfolio";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-white/10 bg-slate-950/50 backdrop-blur-sm">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid gap-10 md:grid-cols-3">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
-              Portfolio
-            </p>
-            <h3 className="mt-3 text-2xl font-bold text-white">
-              EL HADAD HAMZA
-            </h3>
-            <p className="mt-4 max-w-sm leading-7 text-slate-400">
-              Portfolio personnel dédié à la présentation de mon profil, de mes
-              projets, de mes compétences et de mes coordonnées
-              professionnelles.
-            </p>
+    <footer className="border-t border-white/[0.08]">
+      <div className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-3 md:items-end">
+          {/* BRAND */}
 
-            <div className="mt-5 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-300">
-              hamzaelhadad.com
-            </div>
+          <div>
+            <Link
+              href="/#home"
+              className="group inline-flex items-center"
+            >
+              <span className="text-xl font-black tracking-[-0.05em] text-white">
+                HAMZA
+              </span>
+
+              <span className="ml-1.5 h-2 w-2 rounded-full bg-cyan-300 transition-transform duration-300 group-hover:scale-150" />
+            </Link>
+
+            <p className="mt-4 max-w-xs text-sm leading-6 text-zinc-600">
+              Ingénierie logicielle, développement full-stack et création
+              d&apos;applications métier.
+            </p>
           </div>
 
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
-              Navigation
-            </p>
+          {/* NAVIGATION */}
 
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              {footerLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm text-slate-300 transition hover:text-cyan-300"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm md:justify-center">
+            <Link
+              href="/#projects"
+              className="text-zinc-500 transition hover:text-white"
+            >
+              Projets
+            </Link>
+
+            <Link
+              href="/#about"
+              className="text-zinc-500 transition hover:text-white"
+            >
+              À propos
+            </Link>
+
+            <Link
+              href="/#skills"
+              className="text-zinc-500 transition hover:text-white"
+            >
+              Expertise
+            </Link>
+
+            <Link
+              href="/#education"
+              className="text-zinc-500 transition hover:text-white"
+            >
+              Parcours
+            </Link>
+
+            <Link
+              href="/#contact"
+              className="text-zinc-500 transition hover:text-white"
+            >
+              Contact
+            </Link>
           </div>
 
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
-              Réseaux
-            </p>
+          {/* SOCIAL */}
 
-            <div className="mt-4 flex flex-wrap gap-3">
+          <div className="md:text-right">
+            <div className="flex flex-wrap gap-4 md:justify-end">
               <a
                 href={socials.github}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
+                className="group inline-flex items-center gap-1.5 text-sm text-zinc-500 transition hover:text-white"
               >
                 GitHub
+
+                <ArrowUpRight
+                  size={13}
+                  className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
               </a>
 
               <a
                 href={socials.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
+                className="group inline-flex items-center gap-1.5 text-sm text-zinc-500 transition hover:text-white"
               >
                 LinkedIn
-              </a>
 
-              <a
-                href={socials.email}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
-              >
-                Email
+                <ArrowUpRight
+                  size={13}
+                  className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
               </a>
             </div>
 
-            <p className="mt-5 text-sm leading-6 text-slate-400">
-              Basé à Rabat, Maroc • Disponible pour de nouveaux projets et
-              collaborations.
+            <p className="mt-4 text-xs text-zinc-700">
+              © {year} {personalInfo.name}
             </p>
           </div>
-        </div>
-
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 EL HADAD HAMZA. Tous droits réservés.</p>
-          <p>Conçu avec Next.js, TypeScript et Tailwind CSS.</p>
         </div>
       </div>
     </footer>
