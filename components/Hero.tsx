@@ -27,6 +27,8 @@ export default function Hero() {
       id="home"
       className="relative mx-auto max-w-7xl px-6 pb-24 pt-16 lg:px-8 lg:pb-32 lg:pt-24"
     >
+      {/* ================= HERO CONTENT ================= */}
+
       <div className="grid items-center gap-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20">
         {/* ================= LEFT ================= */}
 
@@ -64,8 +66,8 @@ export default function Hero() {
               <span className="font-medium text-white">
                 Hamza El Hadad
               </span>
-              , élève ingénieur et développeur full-stack basé à Rabat.
-              Je conçois des applications web modernes, de l&apos;interface
+              , élève ingénieur et développeur full-stack basé à Rabat. Je
+              conçois des applications web modernes, de l&apos;interface
               jusqu&apos;au backend, avec une attention particulière portée à
               la qualité du code, à la structure et à l&apos;expérience
               utilisateur.
@@ -93,6 +95,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-medium text-white transition duration-300 hover:border-white/20 hover:bg-white/[0.08]"
               >
                 <Download size={16} />
+
                 Télécharger CV
               </a>
             </div>
@@ -102,6 +105,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4 text-sm text-zinc-500">
               <div className="flex items-center gap-2">
                 <MapPin size={15} />
+
                 {personalInfo.location}
               </div>
 
@@ -112,6 +116,7 @@ export default function Hero() {
                 className="flex items-center gap-2 transition hover:text-white"
               >
                 <Github size={15} />
+
                 GitHub
               </a>
 
@@ -122,6 +127,7 @@ export default function Hero() {
                 className="flex items-center gap-2 transition hover:text-white"
               >
                 <Linkedin size={15} />
+
                 LinkedIn
               </a>
             </div>
@@ -131,44 +137,45 @@ export default function Hero() {
         {/* ================= PHOTO ================= */}
 
         <Reveal delay={0.12} y={30}>
-          <div className="relative mx-auto w-full max-w-[500px] lg:mx-0 lg:ml-auto">
-            {/* glow */}
-            <div className="absolute -inset-8 -z-10 rounded-full bg-cyan-300/[0.06] blur-3xl" />
+          <div className="relative mx-auto aspect-square w-full max-w-[470px]">
+            {/* GLOW */}
 
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/[0.10] bg-[#111315]">
+            <div className="absolute inset-4 rounded-full bg-cyan-300/[0.08] blur-3xl" />
+
+            {/* PHOTO */}
+
+            <div className="relative aspect-square overflow-hidden rounded-full border border-white/[0.10] bg-[#101214] shadow-2xl shadow-black/40">
               <Image
                 src="/profile-new.jpg"
-                alt="Hamza El Hadad"
+                alt={personalInfo.name}
                 fill
                 priority
-                sizes="(max-width: 1024px) 90vw, 500px"
-                className="object-cover object-top"
+                sizes="(max-width: 1024px) 85vw, 470px"
+                className="object-cover"
               />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
-
-              {/* bottom profile */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                <div className="border-t border-white/15 pt-5">
-                  <p className="text-sm text-zinc-400">
-                    Currently
-                  </p>
-
-                  <p className="mt-1 text-lg font-medium text-white">
-                    Engineering Student @ EMSI
-                  </p>
-                </div>
-              </div>
             </div>
 
-            {/* floating badge */}
-            <div className="absolute -left-5 top-8 hidden rounded-2xl border border-white/10 bg-[#0d0f11]/90 px-5 py-4 shadow-2xl backdrop-blur-xl sm:block">
+            {/* FOCUS BADGE */}
+
+            <div className="absolute -left-3 top-12 hidden rounded-2xl border border-white/10 bg-[#0d0f11]/90 px-5 py-4 shadow-2xl backdrop-blur-xl sm:block">
               <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-600">
                 Focus
               </p>
 
               <p className="mt-1.5 text-sm font-medium text-white">
                 Full-Stack Development
+              </p>
+            </div>
+
+            {/* CURRENTLY BADGE */}
+
+            <div className="absolute bottom-4 right-0 hidden rounded-2xl border border-white/10 bg-[#0d0f11]/90 px-5 py-4 shadow-2xl backdrop-blur-xl sm:block">
+              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-600">
+                Currently
+              </p>
+
+              <p className="mt-1.5 text-sm font-medium text-white">
+                Engineering Student @ EMSI
               </p>
             </div>
           </div>

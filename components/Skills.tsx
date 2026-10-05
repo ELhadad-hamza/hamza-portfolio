@@ -23,9 +23,9 @@ export default function Skills() {
           </div>
 
           <p className="max-w-md text-base leading-7 text-zinc-500">
-            Je choisis les technologies en fonction du besoin du projet, avec
-            une attention particulière portée à la structure, la maintenabilité
-            et la qualité de l&apos;expérience utilisateur.
+            Une stack construite autour du développement full-stack, des
+            applications métier et de la conception de solutions structurées,
+            maintenables et performantes.
           </p>
         </div>
       </Reveal>
