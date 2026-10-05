@@ -1,116 +1,303 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Github } from "lucide-react";
+
 import { projects } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
-import MotionCard from "@/components/MotionCard";
-import Link from "next/link";
 
 export default function Projects() {
+  const featuredProject = projects[0];
+  const otherProjects = projects.slice(1);
+
+  const featuredHasDemo =
+    featuredProject.demo && featuredProject.demo !== "#";
+
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
+    <section
+      id="projects"
+      className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32"
+    >
+      {/* ================= HEADER ================= */}
+
       <Reveal>
-        <div className="mb-12">
-          <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
-            Projets
-          </p>
-          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-            Mes réalisations
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-400">
-            Une sélection de projets qui reflètent mon approche du développement :
-            interface moderne, structure claire et solutions adaptées à des besoins
-            concrets.
+        <div className="flex flex-col gap-8 border-b border-white/[0.08] pb-10 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
+              Selected Work
+            </p>
+
+            <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+              Des projets pensés pour résoudre des{" "}
+              <span className="text-zinc-500">
+                problèmes concrets.
+              </span>
+            </h2>
+          </div>
+
+          <p className="max-w-md text-base leading-7 text-zinc-500">
+            Une sélection de projets qui reflètent ma manière de concevoir,
+            structurer et développer des applications web et logicielles.
           </p>
         </div>
       </Reveal>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {projects.map((project, index) => {
-          const hasDemo = project.demo && project.demo !== "#";
+      {/* ================= FEATURED PROJECT ================= */}
 
-          return (
-            <Reveal key={project.title} delay={index * 0.08}>
-  <MotionCard>
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm transition duration-300 hover:border-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-500/10">
-      <div className="relative h-56 w-full overflow-hidden border-b border-white/10">
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover transition duration-500 group-hover:scale-105"
-          />
-        ) : (
-          <div className="h-full w-full bg-gradient-to-br from-cyan-400/10 via-slate-900 to-blue-500/10" />
-        )}
+      <Reveal delay={0.08}>
+        <article className="group mt-14 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16">
+          {/* IMAGE */}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-
-        <div className="absolute left-4 top-4">
-          <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-            Projet {index + 1}
-          </span>
-        </div>
-      </div>
-
-      <div className="flex flex-1 flex-col p-8">
-        <Link href={`/projects/${project.slug}`}>
-      <h3 className="text-2xl font-bold text-white transition group-hover:text-cyan-300">
-         {project.title}
-       </h3>
-  </Link>
-  <Link
-  href={`/projects/${project.slug}`}
-  className="rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
->
-  Détails
-</Link>
-
-        <p className="mt-4 leading-7 text-slate-300">
-          {project.description}
-        </p>
-
-        <div className="mt-5 flex flex-wrap gap-2">
-          {project.stack.map((tech) => (
-            <span
-              key={tech}
-              className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm font-medium text-cyan-200 transition hover:border-cyan-300 hover:bg-cyan-400/15 hover:text-cyan-100"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2.5 text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400 hover:text-slate-950"
+          <Link
+            href={`/projects/${featuredProject.slug}`}
+            className="relative block overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#101214]"
           >
-            Voir GitHub
-          </a>
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src={featuredProject.image}
+                alt={featuredProject.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+              />
 
-          {hasDemo ? (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
-            >
-              Voir la démo
-            </a>
-          ) : (
-            <span className="rounded-full border border-white/10 bg-slate-900/60 px-5 py-2.5 text-sm font-semibold text-slate-500">
-              Démo bientôt
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+            </div>
+
+            <div className="absolute left-5 top-5">
+              <span className="rounded-full border border-white/10 bg-black/50 px-4 py-2 text-xs font-medium text-white backdrop-blur-md">
+                Projet phare
+              </span>
+            </div>
+          </Link>
+
+          {/* CONTENT */}
+
+          <div>
+            <div className="flex items-center gap-4">
+              <span className="text-sm font-medium text-zinc-600">
+                01
+              </span>
+
+              <div className="h-px w-10 bg-white/10" />
+
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                {featuredProject.category}
+              </span>
+            </div>
+
+            <h3 className="mt-7 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
+              {featuredProject.title}
+            </h3>
+
+            <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-400">
+              {featuredProject.description}
+            </p>
+
+            {/* ROLE */}
+
+            <div className="mt-8 border-y border-white/[0.08] py-5">
+              <div className="grid gap-4 sm:grid-cols-[120px_1fr]">
+                <p className="text-sm text-zinc-600">
+                  Mon rôle
+                </p>
+
+                <p className="text-sm font-medium text-zinc-300">
+                  {featuredProject.role}
+                </p>
+              </div>
+            </div>
+
+            {/* STACK */}
+
+            <div className="mt-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-600">
+                Technologies
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {featuredProject.stack.map((tech, techIndex) => (
+                  <span
+                    key={`${featuredProject.slug}-${tech}-${techIndex}`}
+                    className="rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-zinc-400"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* BUTTONS */}
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href={`/projects/${featuredProject.slug}`}
+                className="group/button inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition hover:bg-cyan-200"
+              >
+                Voir l&apos;étude de cas
+
+                <ArrowUpRight
+                  size={17}
+                  className="transition-transform group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5"
+                />
+              </Link>
+
+              <a
+                href={featuredProject.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm font-medium text-zinc-300 transition hover:border-white/20 hover:text-white"
+              >
+                <Github size={16} />
+                GitHub
+              </a>
+
+              {featuredHasDemo && (
+                <a
+                  href={featuredProject.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm font-medium text-zinc-300 transition hover:border-white/20 hover:text-white"
+                >
+                  Démo
+                  <ArrowUpRight size={15} />
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      </Reveal>
+
+      {/* ================= OTHER PROJECTS ================= */}
+
+      <div className="mt-24">
+        <Reveal>
+          <div className="mb-10 flex items-end justify-between border-b border-white/[0.08] pb-6">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                Plus de projets
+              </p>
+
+              <h3 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white">
+                Autres réalisations
+              </h3>
+            </div>
+
+            <span className="hidden text-sm text-zinc-600 sm:block">
+              {String(otherProjects.length).padStart(2, "0")} projets
             </span>
-          )}
+          </div>
+        </Reveal>
+
+        <div className="grid gap-x-8 gap-y-14 md:grid-cols-2">
+          {otherProjects.map((project, index) => {
+            const hasDemo = project.demo && project.demo !== "#";
+
+            return (
+              <Reveal
+                key={project.slug}
+                delay={index * 0.08}
+              >
+                <article className="group">
+                  {/* PROJECT IMAGE */}
+
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="relative block overflow-hidden rounded-[1.75rem] border border-white/[0.08] bg-[#101214]"
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition duration-700 ease-out group-hover:scale-[1.045]"
+                      />
+
+                      <div className="absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/10" />
+                    </div>
+
+                    <div className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100">
+                      <ArrowUpRight size={17} />
+                    </div>
+                  </Link>
+
+                  {/* PROJECT CONTENT */}
+
+                  <div className="mt-6">
+                    <div className="flex items-center justify-between gap-6">
+                      <p className="text-xs font-medium text-zinc-600">
+                        {String(index + 2).padStart(2, "0")}
+                      </p>
+
+                      <div className="h-px flex-1 bg-white/[0.06]" />
+
+                      <p className="text-xs uppercase tracking-[0.15em] text-zinc-600">
+                        {project.category}
+                      </p>
+                    </div>
+
+                    <Link href={`/projects/${project.slug}`}>
+                      <h4 className="mt-5 text-3xl font-semibold tracking-[-0.035em] text-white transition group-hover:text-cyan-200">
+                        {project.title}
+                      </h4>
+                    </Link>
+
+                    <p className="mt-4 max-w-xl leading-7 text-zinc-500">
+                      {project.description}
+                    </p>
+
+                    <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                      {project.stack.map((tech, techIndex) => (
+                        <span
+                          key={`${project.slug}-${tech}-${techIndex}`}
+                          className="text-sm text-zinc-500"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-7 flex flex-wrap items-center gap-5">
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="group/link inline-flex items-center gap-2 text-sm font-medium text-white"
+                      >
+                        Voir le projet
+
+                        <ArrowUpRight
+                          size={15}
+                          className="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
+                        />
+                      </Link>
+
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-zinc-500 transition hover:text-white"
+                      >
+                        <Github size={14} />
+                        GitHub
+                      </a>
+
+                      {hasDemo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 text-sm text-zinc-500 transition hover:text-white"
+                        >
+                          Live
+                          <ArrowUpRight size={13} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
-      </div>
-    </article>
-  </MotionCard>
-</Reveal>
-          );
-        })}
       </div>
     </section>
   );

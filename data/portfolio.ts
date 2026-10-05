@@ -78,84 +78,187 @@ export const experiences = [
 
 export const projects = [
   {
-    slug: "cabinet-medical",
-    title: "Application Cabinet Médical",
+    slug: "gestion-stock",
+    title: "Plateforme de Gestion de Stock",
+    category: "Projet de stage",
     description:
-      "Application de gestion pour cabinet médical permettant l’organisation des rendez-vous, des patients et des opérations métier dans une interface claire et professionnelle.",
+      "Application métier développée dans le cadre de mon stage pour centraliser et optimiser la gestion des produits, fournisseurs, mouvements de stock, inventaires et alertes au sein d’une interface d’administration complète.",
     fullDescription:
-      "Cette application a été conçue pour digitaliser la gestion quotidienne d’un cabinet médical. Elle permet d’organiser les rendez-vous, de centraliser les informations liées aux patients et de structurer les opérations principales dans une interface simple et professionnelle.",
-    stack: ["C#", ".NET", "SQL Server 2022"],
+      "Cette plateforme de gestion de stock a été développée dans le cadre de mon stage afin de répondre à un besoin concret de suivi et de centralisation des opérations liées au stock. L’application permet de gérer les produits, les catégories, les fournisseurs, les entrées et sorties, les inventaires ainsi que les alertes de stock depuis un tableau de bord structuré.",
+    
+    // ⚠️ Remplace par les vraies technologies utilisées
+    stack: [
+      "À compléter",
+      "À compléter",
+      "SQL / Database",
+    ],
+
+    // ⚠️ Mets ici le vrai dépôt si tu l'as sur GitHub
+    github: "https://github.com/ELhadad-hamza",
+
+    // Mets "#" si le projet n'est pas déployé
+    demo: "#",
+
+    image: "/projects/gestion-stock.png",
+
+    role:
+      "Analyse du besoin, conception de l’application, développement des fonctionnalités métier et création de l’interface d’administration.",
+
+    features: [
+      "Tableau de bord avec indicateurs de stock",
+      "Gestion des produits et des catégories",
+      "Gestion des fournisseurs",
+      "Gestion des entrées de stock",
+      "Gestion des sorties de stock",
+      "Gestion des inventaires",
+      "Alertes de stock faible",
+      "Génération et consultation de rapports",
+      "Gestion des utilisateurs et des rôles",
+    ],
+
+    problem:
+      "Le suivi des stocks devient rapidement complexe lorsque les produits, fournisseurs, entrées, sorties et inventaires sont gérés de manière dispersée. Cela rend plus difficile la surveillance des niveaux de stock et la prise de décision.",
+
+    solution:
+      "J’ai participé à la conception et au développement d’une plateforme centralisée permettant de suivre les principales opérations de stock depuis une interface unique, avec un tableau de bord, des alertes et des modules dédiés aux différentes opérations métier.",
+
+    impact:
+      "La solution permet de centraliser les informations liées au stock, d’améliorer la visibilité sur les mouvements et de simplifier les opérations quotidiennes de gestion.",
+
+    result:
+      "Ce projet de stage m’a permis de travailler sur une application métier complète, de mieux comprendre la traduction d’un besoin professionnel en fonctionnalités techniques et de renforcer mes compétences en développement d’applications de gestion.",
+  },
+
+  {
+    slug: "gestion-ressources-humaines",
+    title: "Système de Gestion des Ressources Humaines",
+    category: "Application métier",
+    description:
+      "Application de gestion des ressources humaines conçue pour centraliser les informations des employés et faciliter le suivi des principales opérations administratives au sein d’une interface claire et structurée.",
+
+    fullDescription:
+      "Ce projet consiste en la conception d’une application dédiée à la gestion des ressources humaines. L’objectif est de centraliser les informations relatives aux collaborateurs et de faciliter les opérations administratives à travers une architecture claire et une interface simple à utiliser.",
+
+    // ⚠️ Donne-moi ensuite les technologies exactes
+    stack: [
+      "À compléter",
+      "À compléter",
+      "À compléter",
+    ],
+
     github: "https://github.com/ELhadad-hamza",
     demo: "#",
+
+    image: "/projects/gestion-rh.png",
+
+    role:
+      "Conception de l’application, développement des fonctionnalités métier et structuration des données.",
+
+    // ⚠️ Adapte cette liste aux fonctions réellement présentes
+    features: [
+      "Gestion des employés",
+      "Centralisation des informations RH",
+      "Gestion des données administratives",
+      "Recherche et consultation des collaborateurs",
+      "Interface d’administration",
+    ],
+
+    problem:
+      "La gestion de nombreuses informations liées aux collaborateurs peut devenir difficile lorsque les données sont dispersées entre plusieurs supports ou processus.",
+
+    solution:
+      "L’application centralise les informations RH au sein d’un système structuré permettant de consulter et gérer les données des collaborateurs plus facilement.",
+
+    impact:
+      "Le projet illustre ma capacité à concevoir une application métier autour d’un besoin organisationnel concret et à structurer les données et fonctionnalités autour de l’utilisateur.",
+
+    result:
+      "Cette application m’a permis de renforcer mes compétences en analyse fonctionnelle, conception d’applications métier, développement et organisation des données.",
+  },
+
+  {
+    slug: "cabinet-medical",
+    title: "Application Cabinet Médical",
+    category: "Application métier",
+    description:
+      "Application métier conçue pour centraliser la gestion des patients, des rendez-vous et des opérations quotidiennes d’un cabinet médical au sein d’une interface structurée et intuitive.",
+
+    fullDescription:
+      "Cette application a été conçue pour digitaliser la gestion quotidienne d’un cabinet médical. Elle permet d’organiser les rendez-vous, de centraliser les informations liées aux patients et de structurer les principales opérations métier.",
+
+    stack: ["C#", ".NET", "SQL Server 2022"],
+
+    github: "https://github.com/ELhadad-hamza",
+    demo: "#",
+
     image: "/projects/cabinet-medical.png",
-    role: "Conception et développement de l’application",
+
+    role:
+      "Conception de l’architecture, développement de l’application et modélisation de la base de données.",
+
     features: [
       "Gestion des patients",
       "Organisation des rendez-vous",
-      "Interface d’administration claire",
-      "Structuration des données médicales",
+      "Gestion des données du cabinet",
+      "Interface d’administration",
+      "Structuration des informations médicales",
     ],
+
     problem:
-      "La gestion manuelle d’un cabinet médical peut devenir lente, désorganisée et difficile à suivre, notamment pour les rendez-vous, les dossiers patients et les opérations internes.",
+      "La gestion manuelle des rendez-vous et des informations relatives aux patients peut devenir difficile à organiser et à suivre au quotidien.",
+
     solution:
-      "J’ai conçu une application centralisée permettant de structurer les données, de mieux organiser les rendez-vous et d’offrir une interface claire pour le suivi quotidien des activités du cabinet.",
+      "J’ai conçu une application permettant de centraliser les données du cabinet, d’organiser les rendez-vous et de structurer les principales opérations dans une interface unique.",
+
     impact:
-      "Le projet montre ma capacité à concevoir une application métier utile, structurée et adaptée à un besoin réel, avec une logique claire côté interface et base de données.",
+      "La solution simplifie l’accès aux informations principales et permet une organisation plus structurée du fonctionnement du cabinet.",
+
     result:
-      "Projet académique et technique mettant en valeur la conception d’une interface métier, la structuration d’une base de données et l’organisation logique d’une application de gestion.",
+      "Ce projet m’a permis de travailler sur la conception d’une application métier, la modélisation d’une base de données SQL Server et le développement avec l’écosystème .NET.",
   },
-  {
-    slug: "shop-coffee",
-    title: "Shop Coffee",
-    description:
-      "Application web inspirée d’un coffee shop moderne avec interface attractive, structure backend claire et gestion de données à l’aide de MongoDB.",
-    fullDescription:
-      "Shop Coffee est une application web pensée autour d’un concept moderne de coffee shop. L’objectif du projet était de créer une interface visuellement agréable, avec une structure backend claire et une gestion efficace des données.",
-    stack: ["React", "Node.js", "Express.js", "MongoDB"],
-    github: "https://github.com/ELhadad-hamza",
-    demo: "#",
-    image: "/projects/shop-coffee.png",
-    role: "Développement frontend et backend",
-    features: [
-      "Interface moderne et responsive",
-      "Gestion des données avec MongoDB",
-      "Backend structuré avec Express",
-      "Présentation claire des éléments",
-    ],
-    problem:
-      "Créer une application web à la fois moderne visuellement et bien organisée techniquement, avec une gestion cohérente des données et une navigation fluide.",
-    solution:
-      "J’ai développé une interface moderne avec React, reliée à un backend Node.js / Express et à une base MongoDB pour structurer les informations et offrir une expérience claire.",
-    impact:
-      "Ce projet renforce ma maîtrise du développement full stack et montre ma capacité à relier design d’interface, logique serveur et gestion de données dans un même produit.",
-    result:
-      "Projet démontrant ma capacité à concevoir une application web full stack avec une interface soignée et une logique de données cohérente.",
-  },
+
   {
     slug: "portfolio-personnel",
     title: "Portfolio Personnel",
+    category: "Projet personnel",
     description:
-      "Création de mon site portfolio personnel pour présenter mon profil, mes compétences, mes projets et mes coordonnées professionnelles dans une interface moderne.",
+      "Conception et développement de mon identité professionnelle en ligne à travers un portfolio performant, responsive et pensé pour présenter clairement mon parcours et mes réalisations.",
+
     fullDescription:
-      "Ce portfolio personnel a été conçu pour mettre en valeur mon profil, mon parcours académique, mes compétences et mes réalisations dans un environnement moderne, responsive et professionnel.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/ELhadad-hamza/hamza-portfolio",
+      "Ce portfolio a été conçu comme une véritable vitrine professionnelle afin de présenter mon profil, ma formation, mes compétences et mes réalisations dans une expérience moderne et accessible sur tous les appareils.",
+
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+
+    github:
+      "https://github.com/ELhadad-hamza/hamza-portfolio",
+
     demo: "https://hamzaelhadad.com",
+
     image: "/projects/portfolio.png",
-    role: "Design, développement et déploiement",
+
+    role:
+      "Direction artistique, UX/UI, développement frontend, SEO et déploiement.",
+
     features: [
-      "Design premium et responsive",
-      "Présentation structurée du profil",
-      "Intégration de projets et sections dynamiques",
-      "Déploiement sur Vercel avec domaine personnalisé",
+      "Interface responsive",
+      "Présentation des projets",
+      "Pages détaillées pour les études de cas",
+      "Animations d’interface",
+      "SEO",
+      "Domaine personnalisé",
+      "Déploiement continu avec Vercel",
     ],
+
     problem:
-      "Présenter mon profil de manière professionnelle, moderne et crédible sur le web, avec une identité visuelle claire et un site facile à consulter sur desktop et mobile.",
+      "Je souhaitais disposer d’un espace professionnel permettant de présenter mon profil, mes compétences et mes réalisations autrement qu’à travers un simple CV.",
+
     solution:
-      "J’ai conçu et développé un portfolio complet avec Next.js, TypeScript et Tailwind CSS, en ajoutant animations, sections structurées, SEO, domaine personnalisé et expérience responsive.",
+      "J’ai conçu et développé un portfolio complet avec Next.js, TypeScript et Tailwind CSS en portant une attention particulière à la lisibilité, au responsive design et à la présentation des projets.",
+
     impact:
-      "Ce site me sert de vitrine professionnelle et démontre mes compétences en développement frontend moderne, structuration d’interface et mise en production réelle.",
+      "Le portfolio centralise mon identité professionnelle, mes projets et mes moyens de contact dans une expérience cohérente accessible publiquement.",
+
     result:
-      "Projet personnel servant de vitrine professionnelle pour présenter mon travail de manière claire, moderne et crédible.",
+      "Le projet est aujourd’hui déployé sur mon domaine personnel hamzaelhadad.com et évolue progressivement avec mes nouvelles expériences et réalisations.",
   },
 ];
