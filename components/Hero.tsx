@@ -24,8 +24,8 @@ const technologies = [
 export default function Hero() {
   return (
     <section
-      id="home"
-      className="relative mx-auto max-w-7xl px-6 pb-24 pt-16 lg:px-8 lg:pb-32 lg:pt-24"
+      id="home"className="relative mx-auto max-w-7xl px-6 pb-20 pt-14 lg:px-8 lg:pb-24 lg:pt-20"
+      
     >
       {/* ================= HERO CONTENT ================= */}
 
@@ -52,7 +52,7 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h1 className="mt-5 max-w-4xl text-[3.3rem] font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-[5.2rem]">
+            <h1 className="mt-5 max-w-4xl text-[3.15rem] font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-[4.9rem] xl:text-[5.2rem]">
               Je transforme des idées en{" "}
               <span className="text-zinc-500">
                 expériences numériques.
@@ -185,7 +185,7 @@ export default function Hero() {
       {/* ================= TECHNOLOGIES ================= */}
 
       <Reveal delay={0.3}>
-        <div className="mt-20 border-y border-white/[0.08] py-6">
+        <div className="mt-16 border-y border-white/[0.08] py-6">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <p className="shrink-0 text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-600">
               Core stack

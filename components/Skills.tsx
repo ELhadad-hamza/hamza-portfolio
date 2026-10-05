@@ -11,7 +11,7 @@ export default function Skills() {
         <div className="grid gap-8 border-b border-white/[0.08] pb-10 lg:grid-cols-[1fr_0.7fr] lg:items-end">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Expertise
+              03 / Expertise
             </p>
 
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl">

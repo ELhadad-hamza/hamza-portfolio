@@ -23,7 +23,7 @@ export default function Projects() {
         <div className="flex flex-col gap-8 border-b border-white/[0.08] pb-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Selected Work
+              01 / Selected Work
             </p>
 
             <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
